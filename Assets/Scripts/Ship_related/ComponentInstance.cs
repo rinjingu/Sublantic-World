@@ -9,4 +9,6 @@ public sealed class ComponentInstance
     {
         this.componentType = componentType;
     }
+
+
 }

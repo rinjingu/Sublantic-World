@@ -1,0 +1,20 @@
+.header_main {
+    -unity-text-align: upper-left;
+    font-size: 50px;
+    -unity-font: initial;
+}
+
+.visual-item-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    background-color: rgb(14, 14, 14);
+    border-width: 1px;
+    border-color: rgb(75, 75, 75);
+}
+.item-icon {
+    height: 100%;
+    width: 100%;
+    -unity-background-scale-mode: scale-to-fit;
+}

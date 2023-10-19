@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4c57e891a130340a9906472d1053d8, type: 3}
   m_Name: ShipComponent
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  componentName: 
-  desc: 
+  prefab: {fileID: -927199367670048503, guid: 9d1d00844bef761488c92799f70532c0, type: 3}
+  componentName: Testing
+  desc: testing component
   componentID: 0
+  attribute:
+  - Key: HP
+    Value: 1
+  - Key: Mass
+    Value: 1

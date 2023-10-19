@@ -1,9 +1,17 @@
-public sealed class ItemInstance {
-    public ItemData itemType;
-    public int Count;    
+using System;
+using UnityEngine;
+using UnityEngine.UIElements;
 
-    public ItemInstance(ItemData itemType, int count) {
+[Serializable]
+public sealed class ItemInstance
+{
+    public ItemData itemType;
+    public ItemVisual itemVisual;
+    public int count;
+
+    public ItemInstance(ItemData itemType, int count = 1)
+    {
         this.itemType = itemType;
-        this.Count = count;
+        this.count = count;
     }
 }
