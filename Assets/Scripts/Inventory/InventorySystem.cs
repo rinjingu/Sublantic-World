@@ -1,18 +1,16 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Cysharp.Threading.Tasks;
-using System.Linq;
-using System.Threading.Tasks;
 
 
+/// <summary>
+/// The InventorySystem class manages the player's inventory.
+/// </summary>
 public class InventorySystem : MonoBehaviour
 {
     public static InventorySystem instance;
-    private List<ItemInstance> inventory = new List<ItemInstance>();
+
+    [SerializeField]
+    public List<ItemInstance> inventory = new List<ItemInstance>();
 
     private void Awake()
     {
@@ -27,6 +25,10 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds an item to the inventory.
+    /// </summary>
+    /// <param name="item">The item to add.</param>
     public void AddItem(ItemInstance item)
     {
         if (item.itemType.IsStackable())
@@ -66,6 +68,10 @@ public class InventorySystem : MonoBehaviour
         inventory.Add(item);
     }
 
+    /// <summary>
+    /// Removes an item from the inventory.
+    /// </summary>
+    /// <param name="item">The item to remove.</param>
     public void RemoveItem(ItemInstance item)
     {
         if (this.HasItem(item.itemType) == false)
@@ -97,6 +103,10 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes all instances of an item from the inventory.
+    /// </summary>
+    /// <param name="item">The item to remove.</param>
     public void RemoveAll(ItemData item)
     {
         foreach (ItemInstance i in inventory)
@@ -108,6 +118,11 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the inventory contains an item.
+    /// </summary>
+    /// <param name="item">The item to check for.</param>
+    /// <returns>True if the inventory contains the item, false otherwise.</returns>
     public bool HasItem(ItemData item)
     {
         foreach (ItemInstance i in inventory)
@@ -120,10 +135,12 @@ public class InventorySystem : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Removes an item instance from the inventory.
+    /// </summary>
+    /// <param name="item">The item instance to remove.</param>
     public void RemoveInstance(ItemInstance item)
     {
         inventory.Remove(item);
     }
-
-
 }

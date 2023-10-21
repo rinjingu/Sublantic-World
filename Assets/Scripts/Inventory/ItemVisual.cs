@@ -9,6 +9,7 @@ public class ItemVisual : VisualElement
     {
         this.itemData = itemData;
         name = $"itemData.name";
+        style.visibility = Visibility.Hidden;
 
         VisualElement icon = new VisualElement
         {
@@ -19,9 +20,4 @@ public class ItemVisual : VisualElement
         AddToClassList("visual-item-container");
     }
 
-    public void SetPosition(Vector2 position)
-    {
-        style.left = position.x;
-        style.top = position.y;
-    }
 }

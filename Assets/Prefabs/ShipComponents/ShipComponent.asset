@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04e1eab215293641995fbc4da9afbbe, type: 3}
-  m_Name: ItemData
+  m_Script: {fileID: 11500000, guid: dd4c57e891a130340a9906472d1053d8, type: 3}
+  m_Name: ShipComponent
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  componentName: 
+  prefab: {fileID: -927199367670048503, guid: 9d1d00844bef761488c92799f70532c0, type: 3}
+  componentName: Testing Object
   desc: 
-  ID: 95573578-7689-4bf4-9618-0653c0b61228
-  maxCount: 0
+  componentID: 0
   attribute: []
