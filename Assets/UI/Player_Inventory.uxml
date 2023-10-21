@@ -10,7 +10,7 @@
                 <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoName" />
                 <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoCount" />
             </ui:VisualElement>
-            <ui:VisualElement name="Inventory" class="InventoryContainer" style="margin-top: 0;">
+            <ui:VisualElement name="Inventory" class="InventoryContainer" style="margin-top: 0; height: 100%; width: 100%;">
                 <ui:ListView focusable="true" name="InventoryList" style="align-items: stretch;" />
             </ui:VisualElement>
         </ui:VisualElement>
