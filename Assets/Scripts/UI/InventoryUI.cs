@@ -1,13 +1,25 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class InventoryUI : MonoBehaviour {
+public class InventoryUI : MonoBehaviour
+{
     [SerializeField]
     VisualTreeAsset listEntryTemplate;
-    private void OnEnable() {
-        var inventoryUI = GetComponent<UIDocument>();
-        var root = inventoryUI.rootVisualElement;
-        var inventoryListController = new InventoryListController(root, listEntryTemplate, InventorySystem.instance);
+
+    InventorySystem inventorySystem;
+    UIDocument inventoryUI;
+    VisualElement root;
+    InventoryListController inventoryListController;
+
+    private void OnEnable()
+    {
+        inventorySystem = GameObject.Find("PlayerSystem").GetComponent<InventorySystem>();
+        inventoryUI = GetComponent<UIDocument>();
+        root = inventoryUI.rootVisualElement;
+        inventoryListController = new InventoryListController(
+            root,
+            listEntryTemplate,
+            inventorySystem
+        );
     }
 }

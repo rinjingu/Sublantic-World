@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InventoryListController {
+public class InventoryListController
+{
     private InventorySystem inventorySystem;
     private VisualTreeAsset listElementTemplate;
 
@@ -11,8 +12,13 @@ public class InventoryListController {
     Label itemNameLabel;
     Label itemCountLabel;
     VisualElement itemVisualContainer;
+    Button removeButton;
 
-    public InventoryListController(VisualElement root, VisualTreeAsset listElementTemplate, InventorySystem inventorySystem)
+    public InventoryListController(
+        VisualElement root,
+        VisualTreeAsset listElementTemplate,
+        InventorySystem inventorySystem
+    )
     {
         this.inventorySystem = inventorySystem;
         this.listElementTemplate = listElementTemplate;
@@ -27,12 +33,15 @@ public class InventoryListController {
 
         ClearInfoPanel();
 
-        {foreach (var item in inventorySystem.inventory) {Debug.Log(item.itemType.name);}}
         FillItemListView();
+
+        removeButton = root.Q<Button>("RemoveButton");
+
+        removeButton.clicked += OnRemoveButtonClicked;
 
         itemListView.onSelectionChange += OnEntrySelected;
     }
-    
+
     private void FillItemListView()
     {
         itemListView.makeItem = () =>
@@ -48,16 +57,22 @@ public class InventoryListController {
 
         itemListView.bindItem = (e, i) =>
         {
-            (e.userData as InventoryListEntryController).SetItemInstance(inventorySystem.inventory[i]);
+            (e.userData as InventoryListEntryController).SetItemInstance(
+                inventorySystem.inventory[i]
+            );
         };
 
         itemListView.fixedItemHeight = 45;
+
         itemListView.itemsSource = inventorySystem.inventory;
     }
-    
-    private void OnEntrySelected(IEnumerable<object> selectedItems){
+
+    private void OnEntrySelected(IEnumerable<object> selectedItems)
+    {
+        Debug.Log("Selected item");
         var selectedItem = itemListView.selectedItem as ItemInstance;
-        if (selectedItem == null){
+        if (selectedItem == null)
+        {
             //clear info panel
             ClearInfoPanel();
 
@@ -67,7 +82,7 @@ public class InventoryListController {
         //Fill info panel
         itemNameLabel.text = selectedItem.itemType.name;
         itemCountLabel.text = selectedItem.count.ToString();
-        itemVisualContainer.style.backgroundImage = new StyleBackground(selectedItem.itemType.icon);
+        itemVisualContainer.style.backgroundImage = selectedItem.itemType.icon.texture;
     }
 
     private void ClearInfoPanel()
@@ -75,5 +90,19 @@ public class InventoryListController {
         itemNameLabel.text = "";
         itemCountLabel.text = "";
         itemVisualContainer.style.backgroundImage = null;
+    }
+
+    private void OnRemoveButtonClicked()
+    {
+        var selectedItem = itemListView.selectedItem as ItemInstance;
+
+        if (selectedItem == null)
+        {
+            Debug.LogWarning("No item selected");
+            return;
+        }
+
+        inventorySystem.RemoveItem(selectedItem);
+        itemListView.Rebuild();
     }
 }

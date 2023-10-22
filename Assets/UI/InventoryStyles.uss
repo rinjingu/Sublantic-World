@@ -2,7 +2,7 @@
     -unity-text-align: middle-left;
     font-size: 50px;
     -unity-font: initial;
-    color: rgba(226, 226, 226, 255);
+    color: rgb(226, 226, 226);
 }
 
 .visual-item-container {
@@ -57,4 +57,9 @@
 }
 
 .InfoIconContainer {
+}
+
+.CommonLabel {
+    color: rgba(229, 227, 227, 255);
+    -unity-text-align: upper-center;
 }

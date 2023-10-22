@@ -7,23 +7,10 @@ using UnityEngine;
 /// </summary>
 public class InventorySystem : MonoBehaviour
 {
-    public static InventorySystem instance;
 
-    [SerializeField]
     public List<ItemInstance> inventory = new List<ItemInstance>();
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            //Configure();
-        }
-        else if (instance != this)
-        {
-            Destroy(this);
-        }
-    }
+    private void Awake(){}
 
     /// <summary>
     /// Adds an item to the inventory.

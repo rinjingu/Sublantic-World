@@ -1,13 +1,18 @@
 using UnityEngine.UIElements;
-public class InventoryListEntryController {
 
+/// <summary>
+/// Controls the visual representation of an inventory item in a list.
+/// </summary>
+public class InventoryListEntryController
+{
     VisualElement root;
     VisualElement ListEntryContainer;
     VisualElement IconContainer;
     Label NameLabel;
     Label CountLabel;
 
-    public void SetVisualElement(VisualElement visualElement, VisualElement root) {
+    public void SetVisualElement(VisualElement visualElement, VisualElement root)
+    {
         this.root = root;
         ListEntryContainer = visualElement.Q<VisualElement>("list-entry-container");
         IconContainer = visualElement.Q<VisualElement>("item-icon-container");
@@ -15,7 +20,8 @@ public class InventoryListEntryController {
         CountLabel = visualElement.Q<Label>("item-count-label");
     }
 
-    public void SetItemInstance(ItemInstance itemInstance) {
+    public void SetItemInstance(ItemInstance itemInstance)
+    {
         ListEntryContainer.style.width = root.style.width;
         IconContainer.style.backgroundImage = itemInstance.itemType.icon.texture;
         IconContainer.style.width = 32;
