@@ -69,20 +69,7 @@ public class InventoryListController
 
     private void OnEntrySelected(IEnumerable<object> selectedItems)
     {
-        Debug.Log("Selected item");
-        var selectedItem = itemListView.selectedItem as ItemInstance;
-        if (selectedItem == null)
-        {
-            //clear info panel
-            ClearInfoPanel();
-
-            return;
-        }
-
-        //Fill info panel
-        itemNameLabel.text = selectedItem.itemType.name;
-        itemCountLabel.text = selectedItem.count.ToString();
-        itemVisualContainer.style.backgroundImage = selectedItem.itemType.icon.texture;
+        RefreshInfoPanel();
     }
 
     private void ClearInfoPanel()
@@ -104,5 +91,22 @@ public class InventoryListController
 
         inventorySystem.RemoveItem(selectedItem);
         itemListView.Rebuild();
+        RefreshInfoPanel();
+    }
+
+    private void RefreshInfoPanel(){
+        var selectedItem = itemListView.selectedItem as ItemInstance;
+        if (selectedItem == null)
+        {
+            //clear info panel
+            ClearInfoPanel();
+
+            return;
+        }
+
+        //Fill info panel
+        itemNameLabel.text = selectedItem.itemType.name;
+        itemCountLabel.text = selectedItem.count.ToString();
+        itemVisualContainer.style.backgroundImage = selectedItem.itemType.icon.texture;
     }
 }

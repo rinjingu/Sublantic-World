@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2156.788, g: 2259.5083, b: 3279.4841, a: 1}
+  m_IndirectSpecularColor: {r: 2157.0337, g: 2259.616, b: 3279.4426, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -609,6 +609,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6e959936608c54689eedb09afc638b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InventoryKey:
+    m_Name: Inventory Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8540eeb1-d137-4fea-a27e-f2520640add0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  MovementKeys:
+    m_Name: Movement Keys
+    m_Id: 9e727b70-98f4-4d1c-aa77-fed1029d5af6
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &525526661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,7 +679,7 @@ GameObject:
   - component: {fileID: 1202014817}
   - component: {fileID: 1202014819}
   m_Layer: 5
-  m_Name: InventorySystem
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
