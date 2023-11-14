@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// The InventorySystem class manages the player's inventory.
+/// Act as the background logic of the inventory system and is not directly related to the UI.
 /// </summary>
 public class InventorySystem : MonoBehaviour
 {
