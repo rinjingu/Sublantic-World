@@ -1,24 +1,22 @@
 using System.Collections.Generic;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+[DisallowMultipleComponent]
+public class PlayerController : MonoBehaviour, InputSystem.IPlayerControlActions
 {
     private InventorySystem inventory;
+
+    private InputSystem inputSystem;
+    private MovementController movementController;
     private GameObject InventoryUI;
-    private List<string> pressedKeys = new List<string>();
 
-    [ReadOnly]
-    [SerializeField]
-    private InputAction InventoryKey;
 
-    [ReadOnly]
-    [SerializeField]
-    private InputActionMap MovementKeys;
 
-    private void Start()
+    private void OnEnable()
     {
         Debug.Log("Start loading Player System");
 
@@ -27,47 +25,59 @@ public class PlayerController : MonoBehaviour
         //disable the inventory ui on start
         InventoryUI.SetActive(false);
 
-        //START BIND INPUTS
-        //bind the inventory key to the inventory ui
-        InventoryKey = new InputAction("InventoryKey", binding: "<Keyboard>/i");
-        InventoryKey.performed += ctx => ToggleInventoryUI();
-        InventoryKey.Enable();
-
-        //bind movement keys
-        MovementKeys = new InputActionMap("MovementKeys");
-        MovementKeys.AddAction("MoveFront", binding: "<Keyboard>/w");
-        MovementKeys.AddAction("MoveBack", binding: "<Keyboard>/s");
-        MovementKeys.AddAction("MoveLeft", binding: "<Keyboard>/a");
-        MovementKeys.AddAction("MoveRight", binding: "<Keyboard>/d");
-
-        RegisterKeyPressToAction(MovementKeys["MoveFront"], "w");
-        RegisterKeyPressToAction(MovementKeys["MoveBack"], "s");
-        RegisterKeyPressToAction(MovementKeys["MoveLeft"], "a");
-        RegisterKeyPressToAction(MovementKeys["MoveRight"], "d");
-
-        MovementKeys.Enable();
-        //END BIND INPUTS
-        Debug.Log("Finished loading Player System");
-    }
-    
-    private void Update() {
-        if (pressedKeys.Count > 0)
+        // initialize the player input system
+        if (inputSystem == null)
         {
-            Debug.Log("Pressed keys: " + string.Join(", ", pressedKeys));
+            inputSystem = new InputSystem();
+            inputSystem.PlayerControl.SetCallbacks(this);
+            inputSystem.Enable();
+        }
+
+        movementController = GetComponent<MovementController>();
+
+        Debug.Log("Finished loading Player System");
+        
+        SetCursorLock(true);
+    }
+
+    private void Update()
+    {
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementController.moveVector = context.ReadValue<Vector3>();
+    }
+
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        Debug.Log("OnRotate");
+        movementController.Rotate(context.ReadValue<Vector2>());
+
+    }
+
+    public void OnAdjustSpeed(InputAction.CallbackContext context)
+    {
+        Debug.Log("OnAdjustSpeed");
+    }
+
+    public void OnOpenCloseInventory(InputAction.CallbackContext context)
+    {
+        InventoryUI.SetActive(!InventoryUI.activeSelf);
+        SetCursorLock(!InventoryUI.activeSelf);
+    }
+
+    private void SetCursorLock(bool locked)
+    {
+        if (locked)
+        {
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        else
+        {
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
-
-    private void ToggleInventoryUI()
-    {
-        Debug.Log("ToggleInventoryUI");
-        InventoryUI.SetActive(!InventoryUI.activeSelf);
-    }
-
-    private void RegisterKeyPressToAction(InputAction inputAction, string key)
-    {
-        inputAction.started += ctx => pressedKeys.Add(key);
-        inputAction.canceled += ctx => pressedKeys.Remove(key);
-    }
-
-
 }
