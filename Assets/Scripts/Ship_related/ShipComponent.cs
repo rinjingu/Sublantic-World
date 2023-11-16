@@ -16,12 +16,12 @@ public class ShipComponent : ScriptableObject
     public int componentID;
 
     [SerializeField]
-    private List<SerializableKeyValuePair> attribute = new List<SerializableKeyValuePair>();
+    private List<SerializableKeyValuePair> attributes = new List<SerializableKeyValuePair>();
 
     public Dictionary<string, string> GetAttributes()
     {
         Dictionary<string, string> dict = new();
-        foreach (SerializableKeyValuePair kvp in attribute)
+        foreach (SerializableKeyValuePair kvp in attributes)
         {
             dict.Add(kvp.Key, kvp.Value);
         }

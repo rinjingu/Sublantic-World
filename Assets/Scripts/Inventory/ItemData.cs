@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Sublantic World/ItemData", order = 0)]
@@ -10,6 +11,7 @@ public class ItemData : ScriptableObject
 
     [TextArea]
     public string desc;
+    [ReadOnly]
     public string ID = Guid.NewGuid().ToString();
     public int maxCount;
 
