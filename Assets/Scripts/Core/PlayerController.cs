@@ -51,14 +51,13 @@ public class PlayerController : MonoBehaviour, InputSystem.IPlayerControlActions
 
     public void OnRotate(InputAction.CallbackContext context)
     {
-        Debug.Log("OnRotate");
         movementController.Rotate(context.ReadValue<Vector2>());
-
     }
 
     public void OnAdjustSpeed(InputAction.CallbackContext context)
     {
         Debug.Log("OnAdjustSpeed");
+        context.ReadValue<float>();
     }
 
     public void OnOpenCloseInventory(InputAction.CallbackContext context)

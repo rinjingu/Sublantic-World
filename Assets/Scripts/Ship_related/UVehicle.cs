@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "UVehicle", menuName = "Sublantic World/UVehicle", order = 0)]
@@ -11,11 +10,30 @@ public sealed class UVehicle : ScriptableObject
     public Sprite vehicleIcon;
     public GameObject vehiclePrefab;
 
-    [ReadOnly]
-    public string vehicleID = Guid.NewGuid().ToString();
-    public List<ComponentInstance> components = new();
+    public bool useGyro { get{
+        if(gyroValue.pitch == 0 && gyroValue.yaw == 0 && gyroValue.roll == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }}
+    
+    public List<ComponentInstance> components;
 
-    public VehicleLayout vehicleLayout = new();
+    public VehicleLayout vehicleLayout;
+
+    public int TurretSlotCount
+    {
+        get { return vehicleLayout.turretSlots.Count; }
+    }
+
+    public GyroValue gyroValue;
 }
 
-public struct BaseAttributes { }
+[Serializable]
+public struct GyroValue
+{
+    public float pitch;
+    public float yaw;
+    public float roll;
+}

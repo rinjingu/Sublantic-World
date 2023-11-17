@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47754558}
+  - component: {fileID: 47754559}
+  - component: {fileID: 47754560}
   m_Layer: 0
   m_Name: PlayerSystem
   m_TagString: Untagged
@@ -151,10 +153,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1823688467}
   - {fileID: 1491356338}
   m_Father: {fileID: 525526662}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &47754559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47754557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9dc4d5449f6db46b3f6fd5380f6173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &47754560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47754557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76b38d16f55cf14987ff51adf4052d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleInstance:
+    vehicleType: {fileID: 11400000, guid: 38b07436d23cb134ca089d8e0bb7bec5, type: 2}
+    vehicleID: fc4ec3e6-3c25-4155-835f-4c14e3d902f7
+    vehicleName: Testing
 --- !u!1 &72012455
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,10 +826,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1823688467}
+  m_Children: []
   m_Father: {fileID: 47754558}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1491356339
 BoxCollider:
@@ -961,7 +991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1491356338}
+  m_Father: {fileID: 47754558}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1823688468

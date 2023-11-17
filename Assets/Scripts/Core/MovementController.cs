@@ -5,6 +5,7 @@ public class MovementController : MonoBehaviour
 {
     public Vector3 moveVector;
     public Vector2 rotateVector;
+    public float power;
     private GameObject playerSystem;
     private Rigidbody playerRigidBody;
 
@@ -33,6 +34,7 @@ public class MovementController : MonoBehaviour
         var currentPosition = playerRigidBody.position;
         var currentRotation = playerRigidBody.rotation;
         // map local axis to world axis
+        var vehicaleForce = playerSystem.GetComponent<UVehicleController>().forceComposite;
         var worldAxis = currentRotation * vector;
         playerRigidBody.MovePosition(currentPosition + worldAxis * Time.deltaTime);
     }
