@@ -13,7 +13,7 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
-        inventorySystem = GameObject.Find("PlayerSystem").GetComponent<InventorySystem>();
+        inventorySystem = GameObject.Find("GameSystem").GetComponent<InventorySystem>();
         inventoryUI = GetComponent<UIDocument>();
         root = inventoryUI.rootVisualElement;
         inventoryListController = new InventoryListController(
