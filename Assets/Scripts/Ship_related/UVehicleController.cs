@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class UVehicleController : MonoBehaviour {
@@ -8,10 +9,7 @@ public class UVehicleController : MonoBehaviour {
         ForceComposite forces = new();
 
         // calculate forceComposite from main thrusters
-        forces.front = 0;
-        forces.back = 0;
-        forces.leftRight = 0;
-        forces.upDown = 0;
+        forces.velocity = Vector3.zero;
         forces.pitch = 0;
         forces.yaw = 0;
         forces.roll = 0;
@@ -25,7 +23,12 @@ public class UVehicleController : MonoBehaviour {
             var thrusterForce = thruster.thrusterForce;
             var thrusterDirection = thruster.thrusterDirection;
 
-            // TO:DO
+            // TODO: calculate forceComposite from thrusters
+            // calculate distance from thruster to center of mass
+            var distance = math.distance(thrusterPosition, Vector3.zero);
+            // get the angle between thruster and center of mass
+            var angle = Vector3.Angle(thrusterPosition, Vector3.zero);
+            
         }
         
         
@@ -47,10 +50,7 @@ public class UVehicleController : MonoBehaviour {
 
 public struct ForceComposite
 {
-    public float front;
-    public float back;
-    public float leftRight;
-    public float upDown;
+    public Vector3 velocity;
     public float pitch;
     public float yaw;
     public float roll;
