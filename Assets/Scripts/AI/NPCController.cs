@@ -28,6 +28,7 @@ public class NPCController: MonoBehaviour
         nPCNavigation = GetComponent<NPCNavigation>();
         nPCNavigation.OnDetectedTarget += OnDetectedTarget;
         nPCNavigation.OnLostTarget += OnLostTarget;
+        OnAttack += nPCNavigation.TryAttack;
     }
 
     public bool TryAttack()

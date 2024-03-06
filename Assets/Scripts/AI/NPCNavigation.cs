@@ -88,4 +88,10 @@ public class NPCNavigation : MonoBehaviour {
     public virtual void OnLost(){
         OnLostTarget?.Invoke();
     }
+
+    public virtual void TryAttack(){
+        if (IsTargetInAttackRange){
+            Animator.SetTrigger("Attack");
+        }
+    }
 }

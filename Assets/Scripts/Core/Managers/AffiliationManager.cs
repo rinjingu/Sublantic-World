@@ -17,6 +17,12 @@ public class AffiliationManager : MonoBehaviour {
         Relationships = new Dictionary<Tuple<int, int>, AffiliationRelationship>();
         AffiliationList = new List<Affiliation>();
     }
+
+    public void RegisterAffiliation(Affiliation affiliation) {
+        if (!AffiliationList.Contains(affiliation)) {
+            AffiliationList.Add(affiliation);
+        }
+    }
 }
 
 public enum AffiliationRelationship{

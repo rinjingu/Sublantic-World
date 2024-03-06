@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class Affiliation
+
+[CreateAssetMenu(fileName = "Affiliation", menuName = "Sublantic World/Affiliation", order = 0)]
+public class Affiliation : ScriptableObject
 {
     public int AffiliationID;
     public string AffiliationName;
     
     private AffiliationManager m_AffiliationManager;
-
-    public Affiliation(){
-        m_AffiliationManager = Object.FindObjectOfType<AffiliationManager>();
-        m_AffiliationManager.AffiliationList.Add(this);
-    }
 
     public AffiliationRelationship GetAffiliationRelationship(int affiliationID){
         return AffiliationManager.GetRelationship(AffiliationID, affiliationID);

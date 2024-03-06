@@ -6,7 +6,9 @@ public class NPCTesting : MonoBehaviour {
     public UVehicleController vehicleController;
     private NPCController m_NPCController;
     private NPCState m_NPCState;
+    public Affiliation Affiliation;
     
+
     private class IdleState : IState{
         public void Enter() {}
         public void Update() {}
