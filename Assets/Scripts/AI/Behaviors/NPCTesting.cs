@@ -10,6 +10,7 @@ public class NPCTesting : MonoBehaviour {
     
 
     private class IdleState : IState{
+        public static string Name => "Idle";
         public void Enter() {}
         public void Update() {}
         public void Exit() {}
@@ -17,6 +18,7 @@ public class NPCTesting : MonoBehaviour {
     }
 
     private class AttackState : IState{
+        public static string Name => "Attack";
         public void Enter() {}
         public void Update() {}
         public void Exit() {}
@@ -24,8 +26,8 @@ public class NPCTesting : MonoBehaviour {
 
     private void Start() {
         m_NPCState = new NPCState();
-        m_NPCState.AddState("Idle", new IdleState());
-        m_NPCState.AddState("Attack", new AttackState());
+        m_NPCState.AddState(IdleState.Name, new IdleState());
+        m_NPCState.AddState(AttackState.Name, new AttackState());
         m_NPCState.SetInitialState("Idle");
 
         m_NPCController = GetComponent<NPCController>();

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 public class NPCState
 {
     private Dictionary<string, IState> states;
@@ -49,7 +51,8 @@ public class NPCState
 
 public interface IState
 {
-    void Enter();
-    void Update();
-    void Exit();
+    public static string Name { get; }
+    public void Enter();
+    public void Update();
+    public void Exit();
 }
