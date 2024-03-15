@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdc78136a77b6245a01281eddb5a899, type: 3}
+  m_Name: Testing_weapon
+  m_EditorClassIdentifier: 
+  weaponName: 
+  BulletType: 1
+  BulletPrefab: {fileID: 8185043847763461550, guid: 22ed97f43eec6604bb255f5d609d4a34,
+    type: 3}
+  velocity: 20
+  MaxRange: 200
+  FireRate: 1
+  FireCooldown: 0.86227566
+  HeatRate: 10
+  MaxHeat: 0
+  MissileTurnRate: 60
+  MissileLaunchTime: 0.2
+  MaxLifeTimeAddition: 5
+  weaponController: {fileID: 0}
+  FireTransform: {fileID: 2702571725870131070, guid: 16ee8c373730a5f42ac4914863d93034,
+    type: 3}
