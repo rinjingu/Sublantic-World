@@ -66,9 +66,6 @@ public class Weapon : ScriptableObject {
             case ProjectileType.Missile:
                 Shoot_Missile();
                 break;
-            case ProjectileType.Laser:
-                Shoot_Laser();
-                break;
             default:
                 // raise an error in debug console
                 Debug.LogError("Invalid ProjectileType");
@@ -116,9 +113,6 @@ public class Weapon : ScriptableObject {
         rb.AddForce(direction.normalized * velocity, ForceMode.Impulse);
     }
 
-    private void Shoot_Laser() {
-    }
-
     public void OnHit(GameObject bullet, GameObject target) {
         // if the target is not null, call the OnHit method of the target
         if (target != null && target.GetComponent<PlayObject>() != null){
@@ -133,6 +127,5 @@ public class Weapon : ScriptableObject {
 
 public enum ProjectileType {
     Bullet,
-    Missile,
-    Laser
+    Missile
 }
