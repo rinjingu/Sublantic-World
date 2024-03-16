@@ -114,6 +114,9 @@ public class Weapon : ScriptableObject {
     }
 
     public void OnHit(GameObject bullet, GameObject target) {
+        if (bullet == null) {
+            return;
+        }
         // if the target is not null, call the OnHit method of the target
         if (target != null && target.GetComponent<PlayObject>() != null){
             target.GetComponent<PlayObject>().OnHit(bullet);

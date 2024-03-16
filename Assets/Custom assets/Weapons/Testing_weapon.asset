@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Testing_weapon
   m_EditorClassIdentifier: 
   weaponName: 
-  BulletType: 1
+  BulletType: 0
   BulletPrefab: {fileID: 8185043847763461550, guid: 22ed97f43eec6604bb255f5d609d4a34,
     type: 3}
-  velocity: 20
-  MaxRange: 200
+  velocity: 50
+  MaxRange: 100
   FireRate: 1
-  FireCooldown: 0.86227566
+  FireCooldown: -0.0007877033
   HeatRate: 10
   MaxHeat: 0
   MissileTurnRate: 60

@@ -52,5 +52,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "Sublantic-World.sln"
+    "dotnet.defaultSolution": "Sublantic World.sln"
 }
