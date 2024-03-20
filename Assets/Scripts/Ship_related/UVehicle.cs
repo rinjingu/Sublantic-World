@@ -17,7 +17,7 @@ public sealed class UVehicle : ScriptableObject
             return true;
         }
     }}
-    
+    public GyroValue gyroValue;
     public List<ComponentInstance> components;
 
     public VehicleLayout vehicleLayout;
@@ -27,7 +27,7 @@ public sealed class UVehicle : ScriptableObject
         get { return vehicleLayout.turretSlots.Count; }
     }
 
-    public GyroValue gyroValue;
+
 }
 
 [Serializable]
