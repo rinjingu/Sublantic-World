@@ -81,4 +81,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # ref lib
-/[Aa]ssets/FPS/
+/[Aa]ssets/FPS/*
+/[Aa]ssets/FPS.meta
+/[Aa]ssets/Flooded_Grounds/*
+/[Aa]ssets/Flooded_Grounds.meta
+/[Aa]ssets/RPG_FPS_game_assets_industrial/*
+/[Aa]ssets/RPG_FPS_game_assets_industrial.meta
