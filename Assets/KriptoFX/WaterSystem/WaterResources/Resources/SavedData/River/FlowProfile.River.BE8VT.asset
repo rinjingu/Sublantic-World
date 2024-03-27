@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208a3c14a53357c49b24e31e635262dd, type: 3}
+  m_Name: FlowProfile.River.BE8VT
+  m_EditorClassIdentifier: 
+  AreaSize: 300
+  AreaPosition: {x: 0, y: 1, z: 0}
+  FlowmapResolution: 4096
+  FlowmapTexture: {fileID: -6410752208106750539, guid: e7afa3e1c1bd0aa49a1be90bc20c38a7, type: 3}
+  FluidsMaskTexture: {fileID: -6410752208106750539, guid: 9ec0240aada9ce64ca4de95f99161489, type: 3}
+  FluidsPrebakedTexture: {fileID: -6410752208106750539, guid: 2b749064bb7c6ba4fb952268a30225d4, type: 3}
