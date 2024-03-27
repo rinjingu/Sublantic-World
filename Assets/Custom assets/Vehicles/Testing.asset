@@ -12,27 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b288db673e557984aba0a8dba8a292b6, type: 3}
   m_Name: Testing
   m_EditorClassIdentifier: 
-  vehicleName: 
-  vehicleDescription: 
-  vehicleIcon: {fileID: 0}
-  vehiclePrefab: {fileID: 0}
-  vehicleID: 2cdcfd82-678e-41fc-ae35-94aad5618ceb
+  vehicleName: testing
+  vehicleDescription: testing
+  vehiclePrefab: {fileID: 7811187481566687866, guid: e2ba786f26d9ae8468c9f3cf8a5bce06,
+    type: 3}
+  gyroValue:
+    pitch: 0
+    yaw: 0
+    roll: 0
   components: []
   vehicleLayout:
     turretSlots:
-    - SlotSize: 0
-      SlotId: 0
+    - slotSize: 0
+      slotId: 0
     sectors:
-    - SectorId: 0
-      SectorName: Core
-      SectorPosition: {x: 0, y: 0, z: 0}
-      SectorDurability: 1000
-    mainThrusters:
-    - ThrusterName: Test Thurster
-      ThrusterPosition: {x: 0.2, y: 0, z: 0}
-      ThrusterForce: 5
-      isDisabled: 0
-    - ThrusterName: Test Thurster
-      ThrusterPosition: {x: -0.2, y: 0, z: 0}
-      ThrusterForce: 5
-      isDisabled: 0
+    - sectorId: 0
+      sectorName: 
+      sectorPosition: {x: 0, y: 0, z: 0}
+      sectorDurability: 0
+    thrusters: []

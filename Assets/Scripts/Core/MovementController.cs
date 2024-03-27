@@ -17,15 +17,28 @@ public class MovementController : MonoBehaviour
         playerSystem = this.transform.Find("PlayerSystem").gameObject;
         if(playerSystem == null)
         {
-            Debug.LogError("PlayerSystem not found");
+            Debug.LogWarning("PlayerSystem not found on initialization");
         }else{
             playerRigidBody = playerSystem.transform.Find("PlayerObject").gameObject.GetComponent<Rigidbody>();
+            Debug.Log("PlayerSystem found");
         }
         
     }
 
     private void Update()
     {
+        if(playerSystem == null)
+        {
+            Debug.Log("PlayerSystem not found, attempting to find it again");
+        }else{
+            playerSystem = this.transform.Find("PlayerSystem").gameObject;
+            if (playerSystem == null)
+            {
+                return;
+            }
+            playerRigidBody = playerSystem.transform.Find("PlayerObject").gameObject.GetComponent<Rigidbody>();
+            Debug.Log("PlayerSystem found");
+        }
         Move(moveVector);
     }
 

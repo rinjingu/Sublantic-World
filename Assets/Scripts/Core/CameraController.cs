@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,12 +10,26 @@ public class CameraController : MonoBehaviour {
         if (MainCamera == null) {
             Debug.LogError("Main Camera not found");
         }
-        PlayerObject = this.transform.Find("PlayerObject").gameObject;
-        if (PlayerObject == null) {
+        var playerTransform = transform.Find("PlayerObject");
+        if (playerTransform == null) {
             Debug.LogError("PlayerObject not found");
+            PlayerObject = null;
+        }else{
+            PlayerObject = playerTransform.gameObject;
         }
     }
     private void Update() {
+        // update the PlayerObject
+        var playerTransform = transform.Find("PlayerObject");
+        if (playerTransform == null) {
+            Debug.LogError("PlayerObject not found");
+            PlayerObject = null;
+        }else{
+            PlayerObject = playerTransform.gameObject;
+        }
+        if (MainCamera == null || PlayerObject == null) {
+            return;
+        }
         var playerPosition = PlayerObject.transform.position;
         var cameraDistance = 5f;
         var cameraHeight = 1f;

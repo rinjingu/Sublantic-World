@@ -7,7 +7,10 @@ public sealed class UVehicle : ScriptableObject
 {
     public string vehicleName;
     public string vehicleDescription;
-    public Sprite vehicleIcon;
+    public Sprite vehicleIcon {get{
+        // return the sprite from the vehiclePrefab
+        return vehiclePrefab.GetComponent<SpriteRenderer>().sprite;
+    }}
     public GameObject vehiclePrefab;
 
     public bool useGyro { get{

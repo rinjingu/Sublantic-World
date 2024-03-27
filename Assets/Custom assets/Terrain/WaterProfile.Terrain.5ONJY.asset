@@ -147,5 +147,5 @@ MonoBehaviour:
   RenderingProfile: 2
   TransparentSortingPriority: 1
   EnabledMeshRendering: 1
-  DrawToPosteffectsDepth: 0
+  DrawToPosteffectsDepth: 1
   WireframeMode: 0
