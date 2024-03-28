@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleName: testing
   vehicleDescription: testing
-  vehiclePrefab: {fileID: 7811187481566687866, guid: e2ba786f26d9ae8468c9f3cf8a5bce06,
+  vehiclePrefab: {fileID: 4143466767466199099, guid: e245807ed0d98cb42901a7220f230bbe,
     type: 3}
   gyroValue:
     pitch: 0

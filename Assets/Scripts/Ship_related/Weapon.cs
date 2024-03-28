@@ -1,11 +1,18 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Sublantic World/Weapon", order = 0)]
 public class Weapon : ScriptableObject {
     public string weaponName;
     public ProjectileType BulletType;
     public GameObject BulletPrefab;
+
+    [Header("Hit Effect Settings")]
+    public GameObject HitEffect;
+    public float HitEffectDuration = 1f;
+    public float HitEffectRate = 1f;
 
     [Header("Speed Settings")]
     public float velocity = 20f;
@@ -122,9 +129,32 @@ public class Weapon : ScriptableObject {
             target.GetComponent<PlayObject>().OnHit(bullet);
         }
 
+        // display the hit effect
+        if (HitEffect != null) {
+            var vfx = Instantiate(HitEffect, bullet.transform.position, bullet.transform.rotation);
+            var vfxEffect = vfx.GetComponent<VisualEffect>();
+            if (vfxEffect != null) {
+                // configure the effect
+                vfxEffect.playRate = HitEffectRate;
+                // play the effect
+                vfxEffect.Play();
+                // stop the effect after HitEffectDuration
+                // count down the time in a coroutine
+                weaponController.StartCoroutine(StopEffect(vfx, HitEffectDuration));
+            }
+
+
+        }
+
         // destroy the bullet
         weaponController.m_Bullets.Remove(bullet);
         Destroy(bullet);
+    }
+
+    public IEnumerator<WaitForSeconds> StopEffect(GameObject effect, float duration) {
+        yield return new WaitForSeconds(duration);
+        effect.GetComponent<VisualEffect>().Stop();
+        Destroy(effect, 30f);
     }
 }
 

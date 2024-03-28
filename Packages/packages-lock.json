@@ -7,6 +7,12 @@
       "dependencies": {},
       "hash": "cfe509a55602ba5be6df7fa0468b10298b8a053d"
     },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.burst": {
       "version": "1.8.4",
       "depth": 1,
@@ -161,6 +167,17 @@
         "com.unity.render-pipelines.core": "12.1.12"
       }
     },
+    "com.unity.render-pipelines.universal": {
+      "version": "12.1.12",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.burst": "1.8.4",
+        "com.unity.render-pipelines.core": "12.1.12",
+        "com.unity.shadergraph": "12.1.12"
+      }
+    },
     "com.unity.searcher": {
       "version": "4.9.1",
       "depth": 2,
@@ -237,7 +254,7 @@
     },
     "com.unity.visualeffectgraph": {
       "version": "12.1.12",
-      "depth": 1,
+      "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.shadergraph": "12.1.12",
